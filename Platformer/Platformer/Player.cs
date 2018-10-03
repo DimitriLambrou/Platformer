@@ -17,16 +17,18 @@ namespace Platformer
         Game1 game = null;
         float runSpeed = 15000;
 
+        Collision collision = new Collision();
+
         public Player()
         {
 
         }
         public void Load(ContentManager content, Game1 theGame)
         {
-            playerSprite.Load(content, "hero");
+            playerSprite.Load(content, "hero", true);
             game = theGame; // We are now able to access the information stored in the 'Game1' class
             playerSprite.velocity = Vector2.Zero;
-            playerSprite.position = new Vector2(40, 6255);
+            playerSprite.position = new Vector2(80, 6290);
         }
 
         private void UpdateInput(float deltaTime)
@@ -52,6 +54,14 @@ namespace Platformer
             {
                 localAcceleration.Y = runSpeed;
             }
+
+            //foreach (Sprite tile in game.allCollisionTiles)
+            //{
+            //    if (collision.IsColliding(playerSprite, tile) == true)
+            //    {
+            //        int testvariabe = 0;
+            //    }
+            //}
 
             playerSprite.velocity = localAcceleration * deltaTime;
             playerSprite.position += playerSprite.velocity * deltaTime;

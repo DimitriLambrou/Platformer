@@ -81,6 +81,8 @@ namespace Platformer
             mapRenderer = new TiledMapRenderer(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
+            SetUpTiles();
         }
 
         /// <summary>
