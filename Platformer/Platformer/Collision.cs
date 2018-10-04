@@ -219,6 +219,32 @@ namespace Platformer
                 hero = CollideBottom(hero, bottomTile, playerPrediction);
             }
 
+            // Check for collisions with the tiles below and to the left of the player...
+            if (leftCheck == false && bottomCheck == false && bottomLeftCheck == true)
+            {
+                //... then properly check for the diagonals
+                hero = CollideBottomDiagonals(hero, bottomLeftTile, playerPrediction);
+            }
+
+            // Check for collisions with the tiles below and to the right of the player...
+            if (rightCheck == false && bottomCheck == false && bottomRightCheck == true)
+            {
+                // ... then properly check for the diagonals.
+                hero = CollideBottomDiagonals(hero, bottomRightTile, playerPrediction);
+            }
+
+            // check for collisions with the tiles above and to the left of the player...
+            if (leftCheck == false && topCheck == false && topLeftCheck == true)
+            {
+                //... then properly check the diagonal
+                hero = CollideAboveDiagonals(hero, topLeftTitle, playerPrediction);
+            }
+
+            if (rightCheck == false && topCheck == false && topRightCheck == true)
+            {
+                hero = CollideAboveDiagonals(hero, topRightTile, playerPrediction);
+            }
+
             return hero;
         }
     }
