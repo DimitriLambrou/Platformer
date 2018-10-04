@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/s182212/Documents/GitHub/Platformer/Platformer/Platformer/Content/Arial.spritefont</SourceFile>
-  <SourceTime>2017-03-02T02:05:30+11:00</SourceTime>
-  <DestFile>C:/Users/s182212/Documents/GitHub/Platformer/Platformer/Platformer/Content/bin/Windows/Arial.xnb</DestFile>
-  <DestTime>2018-10-03T16:54:09.12436+10:00</DestTime>
+  <SourceFile>C:/Users/s182212/Documents/GitHub/Platformer/Platformer/Platformer/Platformer/Content/Arial.spritefont</SourceFile>
+  <SourceTime>2018-10-04T10:56:20.6960305+10:00</SourceTime>
+  <DestFile>C:/Users/s182212/Documents/GitHub/Platformer/Platformer/Platformer/Platformer/Content/bin/Windows/Arial.xnb</DestFile>
+  <DestTime>2018-10-04T11:14:20.2969335+10:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-02T02:05:36+11:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
