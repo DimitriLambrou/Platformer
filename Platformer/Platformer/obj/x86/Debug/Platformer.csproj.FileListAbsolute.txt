@@ -103,3 +103,10 @@ C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\ob
 C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\obj\x86\Debug\Platformer.exe
 C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\obj\x86\Debug\Platformer.pdb
 C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\walk.xnb
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\heart.xnb
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\damageSound.xnb
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\deathSound.xnb
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\jumpSound.xnb
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\pickupSound.xnb
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\SuperHero_original.wma
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\SuperHero_original.xnb

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using MonoGame.Extended;
 using MonoGame.Extended.Tiled;
 using MonoGame.Extended.Tiled.Graphics;
@@ -30,6 +32,13 @@ namespace Platformer
         public int tileHeight = 0;
         public int levelTileWidth = 0;
         public int levelTileHeight = 0;
+
+        Song gameMusic;
+
+        SpriteFont arialFont;
+        int score = 0;
+        int lives = 3;
+        Texture2D heart = null;
 
         Rectangle myMap;
         
@@ -72,6 +81,9 @@ namespace Platformer
             player.Load(Content, this); // Call the 'Load' function in the Player Class
             // 'this' basically means "pass all information in our class through as a variable"
 
+            arialFont = Content.Load<SpriteFont>("Arial");
+            heart = Content.Load<Texture2D>("heart");
+
             BoxingViewportAdapter viewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice, graphics.GraphicsDevice.Viewport.Width, graphics.GraphicsDevice.Viewport.Height);
 
             camera = new Camera2D(viewportAdapter);
@@ -79,6 +91,9 @@ namespace Platformer
 
             map = Content.Load<TiledMap>("Level1");
             mapRenderer = new TiledMapRenderer(GraphicsDevice);
+
+            gameMusic = Content.Load<Song>("SuperHero_original");
+            MediaPlayer.Play(gameMusic);
 
             // TODO: use this.Content to load your game content here
 
@@ -174,6 +189,17 @@ namespace Platformer
             // Call the 'draw' function from our Player class
             player.Draw(spriteBatch);
             // Finish drawing
+            spriteBatch.End();
+
+            // Draw all the GUI components in a SpriteBatch section
+            spriteBatch.Begin();
+            spriteBatch.DrawString(arialFont, "Score : " + score.ToString(), new Vector2(20, 20), Color.Orange);
+            int loopCount = 0;
+            while(loopCount < lives)
+            {
+                spriteBatch.Draw(heart, new Vector2(GraphicsDevice.Viewport.Width - 80 - loopCount * 20, 20), Color.White);
+                loopCount++;
+            }
             spriteBatch.End();
 
 
