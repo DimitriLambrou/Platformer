@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/s182212/Documents/GitHub/Platformer/Platformer/Platformer/Platformer/Content/deathSound.wav</SourceFile>
   <SourceTime>2018-10-05T11:12:42.5576415+10:00</SourceTime>
   <DestFile>C:/Users/s182212/Documents/GitHub/Platformer/Platformer/Platformer/Platformer/Content/bin/Windows/deathSound.xnb</DestFile>
-  <DestTime>2018-10-05T11:17:44.4040244+10:00</DestTime>
+  <DestTime>2018-10-05T14:26:06.9670127+10:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-02T02:05:36+11:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

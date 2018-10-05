@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 
 namespace Platformer
 {
-    class Chest
+    public class Chest
     {
         public Sprite chestSprite = new Sprite();
         Collision collision = new Collision();
@@ -27,7 +27,7 @@ namespace Platformer
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            chestSprite.Draw(SpriteBatch);
+            chestSprite.Draw(spriteBatch);
         }
     }
 }

@@ -110,3 +110,5 @@ C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bi
 C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\pickupSound.xnb
 C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\SuperHero_original.wma
 C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\SuperHero_original.xnb
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\chest.xnb
+C:\Users\s182212\Documents\GitHub\Platformer\Platformer\Platformer\Platformer\bin\Windows\x86\Debug\Content\zombie.xnb

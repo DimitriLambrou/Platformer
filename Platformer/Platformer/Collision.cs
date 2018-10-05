@@ -95,6 +95,7 @@ namespace Platformer
             {
                 hero.position.Y = tile.topEdge - hero.height + hero.offset.Y;
                 hero.velocity.Y = 0;
+                hero.canJump = true;
             }
 
             return hero;
@@ -113,19 +114,20 @@ namespace Platformer
                 {
                     // If the top edge is closest, the collision is happening to the above of the platform
                     hero.position.Y = tile.topEdge - hero.height + hero.offset.Y;
-                    hero.velocity.Y = 0;
+                    hero.canJump = true;
+                    // hero.velocity.Y = 0;
                 }
                 else if (rightEdgeDistance < leftEdgeDistance)
                 {
                     // If the right edge is closest, the collision is happening to the right of the platform
                     hero.position.X = tile.rightEdge + hero.offset.X;
-                    hero.velocity.X = 0;
+                    // hero.velocity.X = 0;
                 }
                 else
                 {
                     // else if the left edge is closest, the collision is happening to the left of the platform
-                    hero.position.X = tile.leftEdge - hero.width + hero.offset.X;
-                    hero.velocity.X = 0;
+                     hero.position.X = tile.leftEdge - hero.width + hero.offset.X;
+                    // hero.velocity.X = 0;
                 }
             }
 
@@ -144,17 +146,17 @@ namespace Platformer
                 if (bottomEdgeDistance < leftEdgeDistance && bottomEdgeDistance < rightEdgeDistance)
                 {
                     hero.position.Y = tile.bottomEdge + hero.offset.Y;
-                    hero.velocity.Y = 0;
+                    // hero.velocity.Y = 0;
                 }
                 else if (leftEdgeDistance < rightEdgeDistance)
                 {
                     hero.position.X = tile.rightEdge + hero.offset.X;
-                    hero.velocity.X = 0;
+                    // hero.velocity.X = 0;
                 }
                 else
                 {
                     hero.position.X = tile.leftEdge - hero.width + hero.offset.X;
-                    hero.velocity.X = 0;
+                    // hero.velocity.X = 0;
                 }
             }
 
@@ -246,6 +248,41 @@ namespace Platformer
             }
 
             return hero;
+        }
+
+        public Sprite CollideWithMonster(Player hero, Enemy monster, float deltaTime, Game1 theGame)
+        {
+            Sprite playerPrediction = new Sprite();
+            playerPrediction.position = hero.playerSprite.position;
+            playerPrediction.width = hero.playerSprite.width;
+            playerPrediction.height = hero.playerSprite.height;
+            playerPrediction.offset = hero.playerSprite.offset;
+            playerPrediction.UpdateHitBox();
+
+            playerPrediction.position += hero.playerSprite.velocity * deltaTime;
+
+            // If there is a collision...
+            if (IsColliding(hero.playerSprite, monster.enemySprite))
+            {
+                int leftEdgeDistance = Math.Abs(monster.enemySprite.leftEdge - playerPrediction.rightEdge);
+                int rightEdgeDistance = Math.Abs(monster.enemySprite.rightEdge - playerPrediction.leftEdge);
+                int topEdgeDistance = Math.Abs(monster.enemySprite.topEdge - playerPrediction.topEdge);
+                int bottomEdgeDistance = Math.Abs(monster.enemySprite.topEdge - playerPrediction.topEdge);
+
+                // ...Check which edge of the monster sprite is closest, then..
+                if (topEdgeDistance < leftEdgeDistance && topEdgeDistance < rightEdgeDistance && topEdgeDistance < bottomEdgeDistance)
+                {
+                    //... then kill the enemy, otherwise...
+                    theGame.enemies.Remove(monster);
+                    hero.playerSprite.velocity.Y -= hero.jumpStrength * deltaTime;
+                    hero.playerSprite.canJump = false;
+                }
+                else
+                {
+                    //... the player dies
+                    theGame.Exit(); // we will make this work with the health soonish
+                }
+            }
         }
     }
 }

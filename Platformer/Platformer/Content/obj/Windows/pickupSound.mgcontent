@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/s182212/Documents/GitHub/Platformer/Platformer/Platformer/Platformer/Content/pickupSound.wav</SourceFile>
   <SourceTime>2018-10-05T11:13:09.9186415+10:00</SourceTime>
   <DestFile>C:/Users/s182212/Documents/GitHub/Platformer/Platformer/Platformer/Platformer/Content/bin/Windows/pickupSound.xnb</DestFile>
-  <DestTime>2018-10-05T11:17:44.5830244+10:00</DestTime>
+  <DestTime>2018-10-05T14:26:07.1720127+10:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2017-03-02T02:05:36+11:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

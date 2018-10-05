@@ -9,9 +9,9 @@ using Microsoft.Xna.Framework;
 
 namespace Platformer
 {
-    class Enemy
+    public class Enemy
     {
-        float walkingSPeed = 7500;
+        float walkSpeed = 7500;
         public Sprite enemySprite = new Sprite();
         Collision collision = new Collision();
         Game1 game = null;
@@ -31,7 +31,16 @@ namespace Platformer
 
         public void Update(float deltaTime)
         {
-
+            enemySprite.velocity = new Vector2(walkSpeed, 0) * deltaTime;
+            enemySprite.position += enemySprite.velocity * deltaTime;
+            // Check for collisions
+            collision.game = game;
+            enemySprite = collision.CollideWithPlatforms(enemySprite, deltaTime);
+            if (enemySprite.velocity.X == 0)
+            {
+                walkSpeed *= -1;
+                enemySprite.UpdateHitBox();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
