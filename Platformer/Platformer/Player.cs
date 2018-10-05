@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Platformer
 {
-    class Player
+    public class Player
     {
         public Sprite playerSprite = new Sprite();
 
@@ -120,6 +120,13 @@ namespace Platformer
             {
                 playerSprite.velocity.X = -maxSpeed;
             }
+
+            if (wasMovingLeft && (playerSprite.velocity.X > 0) || wasMovingRight && (playerSprite.velocity.X < 0))
+            {
+                // Clamp at zero to prevent friction from making us slide
+                playerSprite.velocity.X = 0;
+            }
+
             if (playerSprite.velocity.Y > terminalVelocity)
             {
                 playerSprite.velocity.Y = terminalVelocity;
@@ -139,6 +146,10 @@ namespace Platformer
             if (collision.IsColliding(playerSprite, game.goal.chestSprite))
             {
                 game.Exit();
+            }
+            for (int i = 0; i < game.enemies.Count; i++)
+            {
+                playerSprite = collision.CollideWithMonster(this, game.enemies[i], deltaTime, game);
             }
         }
 

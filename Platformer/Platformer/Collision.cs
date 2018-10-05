@@ -283,6 +283,8 @@ namespace Platformer
                     theGame.Exit(); // we will make this work with the health soonish
                 }
             }
+
+            return hero.playerSprite;
         }
     }
 }
