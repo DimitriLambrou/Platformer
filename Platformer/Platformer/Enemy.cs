@@ -24,9 +24,9 @@ namespace Platformer
             animation.Load(content, "zombie", 4, 5);
 
             enemySprite.AddAnimation(animation, 16, 0);
-            enemySprite.width = 64;
-            enemySprite.height = 64;
-            enemySprite.offset = new Vector2(8, 8);
+            enemySprite.width = 34;
+            enemySprite.height = 30;
+            enemySprite.offset = new Vector2(-15, 3);
         }
 
         public void Update(float deltaTime)
@@ -39,8 +39,9 @@ namespace Platformer
             if (enemySprite.velocity.X == 0)
             {
                 walkSpeed *= -1;
-                enemySprite.UpdateHitBox();
+                
             }
+            enemySprite.UpdateHitBox();
         }
 
         public void Draw(SpriteBatch spriteBatch)

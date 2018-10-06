@@ -18,7 +18,7 @@ namespace Platformer
         Game1 game = null;
         float runSpeed = 250;
         float maxSpeed = 500;
-        float friction = 500;
+        float friction = 600;
         float terminalVelocity = 500;
         public float jumpStrength = 50000;
 
@@ -45,7 +45,7 @@ namespace Platformer
             jumpSound = content.Load<SoundEffect>("jumpSound");
             jumpSoundInstance = jumpSound.CreateInstance();
 
-            playerSprite.offset = new Vector2(24, 24);
+            playerSprite.offset = new Vector2(1, 10);
             game = theGame; // We are now able to access the information stored in the 'Game1' class
             playerSprite.velocity = Vector2.Zero;
             playerSprite.position = new Vector2(80, 6290);
