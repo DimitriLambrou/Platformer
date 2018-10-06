@@ -28,6 +28,7 @@ namespace Platformer
         SoundEffect jumpSound;
         SoundEffectInstance jumpSoundInstance;
 
+
         public Player()
         {
 

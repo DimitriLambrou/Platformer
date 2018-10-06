@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿#define DEBUG
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -9,6 +11,7 @@ using MonoGame.Extended.Tiled.Graphics;
 using MonoGame.Extended.ViewportAdapters;
 using System.Collections;
 using System.Collections.Generic;
+using ParticleEffects;
 
 namespace Platformer
 {
@@ -47,7 +50,14 @@ namespace Platformer
         Texture2D heart = null;
 
         Rectangle myMap;
+public Texture2D fireTexture = null;
+        public Emitter fireEmitter = null;
         
+
+#if (DEBUG)
+        static public Texture2D whiteRectangle;
+#endif
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -101,6 +111,14 @@ namespace Platformer
             gameMusic = Content.Load<Song>("SuperHero_original");
             MediaPlayer.Play(gameMusic);
 
+#if (DEBUG)
+            whiteRectangle = new Texture2D(GraphicsDevice, 1, 1);
+            whiteRectangle.SetData(new[] { Color.White });
+#endif
+
+            fireTexture = Content.Load<Texture2D>("fire");
+            fireEmitter = new Emitter(fireTexture, player.playerSprite.position);
+
             // TODO: use this.Content to load your game content here
 
             SetUpTiles();
@@ -114,6 +132,9 @@ namespace Platformer
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
+#if (DEBUG)
+            whiteRectangle.Dispose();
+#endif
         }
 
         public void SetUpTiles()
@@ -179,6 +200,11 @@ namespace Platformer
 
             camera.Position = player.playerSprite.position - new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2);
 
+            fireEmitter.position = player.playerSprite.position;
+            fireEmitter.minVelocity = new Vector2(player.playerSprite.velocity.X, player.playerSprite.velocity.Y);
+            fireEmitter.maxVelocity = new Vector2(player.playerSprite.velocity.X * 2, player.playerSprite.velocity.Y * 2);
+            fireEmitter.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -201,6 +227,7 @@ namespace Platformer
             // Call the 'draw' function from our Player class
             player.Draw(spriteBatch);
             goal.Draw(spriteBatch);
+            fireEmitter.Draw(spriteBatch);
 
             foreach (Enemy enemy in enemies)
             {
